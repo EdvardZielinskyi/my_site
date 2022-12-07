@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+<section id="welcome">
+  <header>
+    <img src="{% static 'blog\images\Me.JPG' %}" alt="Max - The Author Of This Blog" />
+    <h2>EDVARD'S BLOG</h2>
+  </header>
+  <p>Hi, I am Edvard and I am a navigation officer!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Stories</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>
+    I am a seman but I love programming and I want to explore more
+    technologies!
+  </p>
+  <p>
+    My goal is to keep on growing as a developer!
+  </p>
+</section>
+{% endblock %}
